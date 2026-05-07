@@ -12,3 +12,5 @@ Even better approach would be using upcoming CSS mixins. They would bring a coup
 - Some atoms would benefit from reusing between different selectors like input and textarea, or menu and select:picker(select).
 
 With the next "Generator" page the process gets easier since the model understands ideas and conventions from existing code.
+
+Figma is using 4 variants of Fixel font. Each takes about 50kB. Ideally those should be bundled into single variable font to download less. In this case I'll just connect each variation individually. Though the fourth is used only for input labels which I think a bit excessive and as a tradeoff will give it font weight 600 instead.

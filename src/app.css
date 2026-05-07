@@ -1,3 +1,29 @@
+/* Fixel Text */
+@font-face {
+  font-family: "Fixel Text";
+  src: url("/fonts/FixelText-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fixel Text";
+  src: url("/fonts/FixelText-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fixel Display */
+@font-face {
+  font-family: "Fixel Display";
+  src: url("/fonts/FixelDisplay-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* Typography */
   --text-button: 600 16px/24px "Fixel Text", system-ui;
@@ -8,7 +34,7 @@
   --text-heading-1-letter-spacing: -2%;
   --text-heading-2: 600 36px/44px "Fixel Display", system-ui;
   --text-heading-2-letter-spacing: -2%;
-  --text-label: 500 14px/20px "Fixel Text", system-ui;
+  --text-label: 600 14px/20px "Fixel Text", system-ui;
 
   /* Colors */
   --color-bg-secondary: hsl(220 22% 96%);
