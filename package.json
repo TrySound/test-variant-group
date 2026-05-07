@@ -10,6 +10,7 @@
     "node": "24"
   },
   "scripts": {
+    "format": "prettier --write .",
     "check": "tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -20,9 +21,11 @@
     "vite": "^8.0.10"
   },
   "devDependencies": {
+    "@storybook/react": "^10.3.6",
     "@storybook/react-vite": "^10.3.6",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "prettier": "^3.8.3",
     "storybook": "^10.3.6",
     "typescript": "^6.0.3"
   }

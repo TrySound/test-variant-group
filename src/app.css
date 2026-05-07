@@ -1,0 +1,312 @@
+:root {
+  /* Typography */
+  --text-button: 600 16px/24px "Fixel Text", system-ui;
+  --text-button-lg: 600 18px/28px "Fixel Text", system-ui;
+  --text-body: 400 18px/28px "Fixel Text", system-ui;
+  --text-heading-1: 600 48px/60px "Fixel Display", system-ui;
+  --text-heading-1-letter-spacing: -2%;
+  --text-heading-2: 600 36px/44px "Fixel Display", system-ui;
+  --text-heading-2-letter-spacing: -2%;
+
+  /* Colors */
+  --color-bg-secondary: hsl(220 22% 96%);
+  --color-bg-primary: hsl(140 76% 96%);
+  --color-bg-action: hsl(153 87% 24%);
+  --color-bg-success: hsl(141 82% 90%);
+  --color-text-secondary: hsl(220 13% 46%);
+  --color-text-primary: hsl(221 43% 11%);
+  --color-text-icon: hsl(217 23% 27%);
+  --color-text-action: hsl(215 18% 34%);
+  --color-text-success: hsl(152 82% 39%);
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Borders */
+  --border-dark: 1px solid hsl(216 16% 84%);
+  --border-light: 1px solid hsla(220, 17%, 93%, 1);
+
+  /* Shadows */
+  --shadow-100: 0px 1px 2px 0px hsla(220, 43%, 11%, 0.05);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font: var(--text-body);
+  color: var(--color-text-secondary);
+}
+
+/***** Atoms *****/
+
+/* Typography */
+
+.text-heading-1 {
+  font: var(--text-heading-1);
+  letter-spacing: var(--text-heading-1-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+.text-heading-2 {
+  font: var(--text-heading-2);
+  letter-spacing: var(--text-heading-2-letter-spacing);
+  color: var(--color-text-primary);
+}
+
+/* Button - Ghost style (default) */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+  font: var(--text-button);
+  color: var(--color-text-action);
+  background-color: var(--button-bg);
+  border: none;
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background-color: var(--button-bg-hover);
+    color: hsl(from var(--color-text-action) h s calc(l - 15));
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.5;
+    color: var(--color-text-action);
+  }
+}
+
+/* Button Primary variant */
+.button--primary {
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-action);
+  color: #ffffff;
+  box-shadow: var(--shadow-100);
+
+  &:hover {
+    background-color: hsl(from var(--color-bg-action) h s calc(l - 5));
+    color: #ffffff;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background-color: var(--color-bg-action);
+    box-shadow: none;
+    color: #ffffff;
+  }
+}
+
+/* Button Icon variant */
+.button--icon {
+  padding: 9px; /* +1px from border */
+  border: var(--border-dark);
+  box-shadow: var(--shadow-100);
+  color: var(--color-text-action);
+  border-radius: var(--radius-md);
+
+  &:hover {
+    background-color: hsl(216 16% 96%);
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    background-color: var(--button-icon-bg);
+    box-shadow: none;
+  }
+}
+
+/* Button Large variant */
+.button--lg {
+  padding: 16px 32px;
+  gap: 12px;
+  font: var(--text-button-lg);
+}
+
+/* Card */
+.card {
+  display: grid;
+  gap: 16px;
+  padding: 24px;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+}
+
+.card-content {
+  white-space: pre-line;
+  /* @todo replace with margin-trim: block; when widely supported */
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.card-content--collapsed {
+  /*max-height: 6lh;*/
+  position: relative;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      transparent 60%,
+      var(--color-bg-secondary) 100%
+    );
+  }
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Progress */
+.progress {
+  display: flex;
+  gap: 4px;
+}
+
+.progress--dashes {
+  gap: 8px;
+}
+
+.progress-item {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text-primary);
+  opacity: 0.24;
+}
+
+.progress-item--active {
+  opacity: 1;
+}
+
+.progress--dashes .progress-item {
+  width: 32px;
+  border-radius: var(--radius-sm);
+}
+
+/* Success Indicator */
+.success-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-success);
+  color: var(--color-text-success);
+}
+
+/***** Organisms *****/
+
+/* App Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+}
+
+.app-header-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.app-header-progress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+/* Page Header */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: var(--border-light);
+  margin-bottom: 24px;
+  @media (max-width: 767px) {
+    display: grid;
+    justify-content: stretch;
+  }
+}
+
+.page-header-title {
+  margin: 0;
+}
+
+/* CTA */
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  background-color: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  padding: 60px 20px;
+}
+
+.cta-content {
+  text-wrap: balance;
+  max-width: 480px;
+  /* @todo replace with margin-trim: block; when widely supported */
+  & > *:first-child {
+    margin-top: 0;
+  }
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Applications Page */
+.applications-page {
+  max-width: 1160px;
+  padding: 0 20px 60px;
+  margin: 0 auto;
+}
+
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+}
