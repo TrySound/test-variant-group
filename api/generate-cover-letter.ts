@@ -44,12 +44,14 @@ Requirements:
 - Output raw text
 `;
 
+    console.log('before generation')
     const { text } = await generateText({
       model: "openai/gpt-5.4-nano",
       system:
         "You are a helpful assistant that writes professional cover letters.",
       prompt,
     });
+    console.log('after generation')
 
     return c.text(text);
   } catch (error) {
