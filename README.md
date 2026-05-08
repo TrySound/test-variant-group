@@ -26,3 +26,9 @@ Next testing the app over and over again noticing differences from figma like "G
 Then researched some options for LLM and end up with using opencode go (my opencode subscription) to generate cover letters.
 
 Another tricky edge case is api endpoints in naked vite. Something like react-router in framework mode would solve this though to make it simpler I went with separate hono server.
+
+Deployment phase was tricky. My first choice these days for all apps is netlify. Though its endpoint have strict timeout 10 seconds per request which cannot be configred (while kimi takes about 20 seconds to generate cover letter). Instead netlify suggest to use long-running background and access results by job id. This feels rather complicated for deploying test project. Second thought is fly.io but they seem require docker container setup. The third option is to use vercel with their cheap fluid compute. Though my experience with their deploy system confirmed: any unusual setup is quirky and requires a bit of shaman dancing around blackbox. Though I switched to their ai gateway which works perfectly and let me choose any model, specifically gpt5-nano with super fast response so I can finally execute on netlify.
+
+---
+
+There are still things to improve, specifically spacing is hardcoded and doesn't have any system, that jumping loader, buttons are not disabled to show loading state on active variant.
