@@ -26,15 +26,18 @@ const MAX_APPLICATIONS = 5;
 export const EmptyState = {
   render: () => (
     <div className="generator-page">
-      <AppHeader
-        currentApplications={3}
-        totalApplications={MAX_APPLICATIONS}
-      />
+      <AppHeader currentApplications={3} totalApplications={MAX_APPLICATIONS} />
       <div className="generator-layout">
         {/* Left column - Form */}
         <div className="generator-form">
-          <div className="page-header" style={{ border: 'none', paddingBottom: 0, marginBottom: '32px' }}>
-            <h1 className="page-header-title text-heading-1" style={{ color: 'var(--color-text-muted)' }}>
+          <div
+            className="page-header"
+            style={{ border: "none", paddingBottom: 0, marginBottom: "32px" }}
+          >
+            <h1
+              className="page-header-title text-heading-1"
+              style={{ color: "var(--color-text-muted)" }}
+            >
               New application
             </h1>
           </div>
@@ -51,11 +54,7 @@ export const EmptyState = {
               </div>
               <div className="form-group">
                 <label className="label">Company</label>
-                <input
-                  type="text"
-                  className="field"
-                  placeholder="Apple"
-                />
+                <input type="text" className="field" placeholder="Apple" />
               </div>
             </div>
 
@@ -91,11 +90,11 @@ export const EmptyState = {
 
         {/* Right column - Preview */}
         <div className="generator-preview">
-          <div className="card" style={{ minHeight: '600px' }}>
+          <div className="card" style={{ minHeight: "600px" }}>
             <div className="generator-preview-placeholder">
               Your personalized job application will appear here...
             </div>
-            <div className="card-actions" style={{ marginTop: 'auto' }}>
+            <div className="card-actions" style={{ marginTop: "auto" }}>
               <span></span>
               <button className="button">
                 Copy to clipboard
@@ -112,14 +111,14 @@ export const EmptyState = {
 export const GeneratedState = {
   render: () => (
     <div className="generator-page">
-      <AppHeader
-        currentApplications={4}
-        totalApplications={MAX_APPLICATIONS}
-      />
+      <AppHeader currentApplications={4} totalApplications={MAX_APPLICATIONS} />
       <div className="generator-layout">
         {/* Left column - Form */}
         <div className="generator-form">
-          <div className="page-header" style={{ border: 'none', paddingBottom: 0, marginBottom: '32px' }}>
+          <div
+            className="page-header"
+            style={{ border: "none", paddingBottom: 0, marginBottom: "32px" }}
+          >
             <h1 className="page-header-title text-heading-1">
               Product manager, Apple
             </h1>
@@ -138,12 +137,7 @@ export const GeneratedState = {
               </div>
               <div className="form-group">
                 <label className="label">Company</label>
-                <input
-                  type="text"
-                  className="field"
-                  value="Apple"
-                  readOnly
-                />
+                <input type="text" className="field" value="Apple" readOnly />
               </div>
             </div>
 
@@ -181,11 +175,9 @@ export const GeneratedState = {
 
         {/* Right column - Preview */}
         <div className="generator-preview">
-          <div className="card" style={{ minHeight: '600px' }}>
-            <div className="card-content">
-              {generatedCoverLetter}
-            </div>
-            <div className="card-actions" style={{ marginTop: 'auto' }}>
+          <div className="card" style={{ minHeight: "600px" }}>
+            <div className="card-content">{generatedCoverLetter}</div>
+            <div className="card-actions" style={{ marginTop: "auto" }}>
               <span></span>
               <button className="button">
                 Copy to clipboard
@@ -196,7 +188,7 @@ export const GeneratedState = {
         </div>
       </div>
 
-      <div style={{ marginTop: '48px' }}>
+      <div style={{ marginTop: "48px" }}>
         <CtaGoal current={3} total={MAX_APPLICATIONS} />
       </div>
     </div>

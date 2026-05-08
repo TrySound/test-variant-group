@@ -16,26 +16,13 @@ export const Form: Story = {
       {/* Label */}
       <div className="form-group">
         <label className="label">Form Label</label>
-        <input
-          type="text"
-          className="field"
-          placeholder="Placeholder text"
-        />
+        <input type="text" className="field" placeholder="Placeholder text" />
       </div>
 
       {/* Field states */}
       <div className="form-group">
-        <input
-          type="text"
-          className="field"
-          placeholder="Default field"
-        />
-        <input
-          type="text"
-          className="field"
-          value="Filled field"
-          readOnly
-        />
+        <input type="text" className="field" placeholder="Default field" />
+        <input type="text" className="field" value="Filled field" readOnly />
         <input
           type="text"
           className="field"
@@ -61,7 +48,9 @@ export const Form: Story = {
           className="field field--multiline"
           placeholder="Describe why you are a great fit or paste your bio"
         />
-        <div className="character-counter" data-state="invalid">0/1200</div>
+        <div className="character-counter" data-state="invalid">
+          0/1200
+        </div>
       </div>
 
       {/* Large multiline field */}
@@ -74,19 +63,11 @@ export const Form: Story = {
       <div className="form-row">
         <div className="form-group">
           <label className="label">Job title</label>
-          <input
-            type="text"
-            className="field"
-            placeholder="Product manager"
-          />
+          <input type="text" className="field" placeholder="Product manager" />
         </div>
         <div className="form-group">
           <label className="label">Company</label>
-          <input
-            type="text"
-            className="field"
-            placeholder="Apple"
-          />
+          <input type="text" className="field" placeholder="Apple" />
         </div>
       </div>
 
