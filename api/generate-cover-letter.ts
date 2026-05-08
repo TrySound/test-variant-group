@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-import { handle } from "@hono/node-server/vercel";
 import { cors } from "hono/cors";
 import { generateText } from "ai";
 
@@ -44,14 +43,14 @@ Requirements:
 - Output raw text
 `;
 
-    console.log('before generation')
+    console.log("before generation");
     const { text } = await generateText({
       model: "openai/gpt-5.4-nano",
       system:
         "You are a helpful assistant that writes professional cover letters.",
       prompt,
     });
-    console.log('after generation')
+    console.log("after generation");
 
     return c.text(text);
   } catch (error) {
@@ -59,5 +58,3 @@ Requirements:
     return c.json({ error: "Internal server error" }, 500);
   }
 });
-
-export default handle(app);

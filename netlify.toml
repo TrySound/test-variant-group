@@ -2,13 +2,6 @@
   command = "pnpm build"
   publish = "dist"
 
-[build.environment]
-  NODE_VERSION = "20"
-
-[[functions]]
-  path = "/api/*"
-  function = "api"
-
 [[redirects]]
   from = "/*"
   to = "/index.html"
