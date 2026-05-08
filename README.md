@@ -22,3 +22,7 @@ The next thing would be assembling the actual app. I threw requirements into mod
 Now I noticed outline button actually has strong resemblance with icon button so I can reuse its styles for it and make button--icon modifier adjust only paddings.
 
 Next testing the app over and over again noticing differences from figma like "Generating..." instead of spinner, editing existing letter instead of creating new one etc. All this LLM is able to handle once described.
+
+Then researched some options for LLM and end up with using opencode go (my opencode subscription) to generate cover letters.
+
+Another tricky edge case is api endpoints in naked vite. Something like react-router in framework mode would solve this though to make it simpler I went with separate hono server.

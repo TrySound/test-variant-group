@@ -9,10 +9,13 @@
   "engines": {
     "node": "24"
   },
+  "type": "module",
   "scripts": {
     "format": "prettier --write .",
     "check": "tsc",
-    "dev": "vite",
+    "dev": "concurrently \"pnpm dev:api\" \"pnpm dev:client\"",
+    "dev:client": "vite",
+    "dev:api": "node --env-file=.env api/server.ts",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -27,8 +30,10 @@
   "devDependencies": {
     "@storybook/react": "^10.3.6",
     "@storybook/react-vite": "^10.3.6",
+    "@types/node": "^25.6.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "concurrently": "^9.2.1",
     "prettier": "^3.8.3",
     "storybook": "^10.3.6",
     "typescript": "^6.0.3"
