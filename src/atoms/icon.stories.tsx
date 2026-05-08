@@ -60,6 +60,39 @@ export const Icon: Story = {
         <IconComponent name="plus" />
         <span>plus</span>
       </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "8px",
+        }}
+      >
+        <IconComponent name="check" />
+        <span>check</span>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "8px",
+        }}
+      >
+        <IconComponent name="refresh" />
+        <span>refresh</span>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "8px",
+        }}
+      >
+        <IconComponent name="spinner" className="icon--spinner" />
+        <span>spinner</span>
+      </div>
     </div>
   ),
 };

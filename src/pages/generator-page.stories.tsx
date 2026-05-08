@@ -76,15 +76,13 @@ export const EmptyState = {
               <div className="character-counter">0/1200</div>
             </div>
 
-            <div className="generator-form-actions">
-              <button
-                type="submit"
-                className="button button--primary button--lg"
-                disabled
-              >
-                Generate Now
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="button button--primary button--lg"
+              disabled
+            >
+              Generate Now
+            </button>
           </form>
         </div>
 
@@ -161,15 +159,10 @@ export const GeneratedState = {
               <div className="character-counter">0/1200</div>
             </div>
 
-            <div className="generator-form-actions">
-              <button
-                type="button"
-                className="button button--secondary button--lg"
-              >
-                <Icon name="refresh" />
-                Try Again
-              </button>
-            </div>
+            <button type="button" className="button button--outline button--lg">
+              <Icon name="refresh" />
+              Try Again
+            </button>
           </form>
         </div>
 

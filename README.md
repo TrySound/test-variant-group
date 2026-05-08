@@ -11,6 +11,14 @@ Even better approach would be using upcoming CSS mixins. They would bring a coup
 - Typography design tokens could be more complete using mixin, because now letter-spacing should be specified separately in addition to font shorthand.
 - Some atoms would benefit from reusing between different selectors like input and textarea, or menu and select:picker(select).
 
+For typography I left spacing in a bit loose state with default margins and margin-trim-ish solution to make it isolated from affecting outside spacing.
+
 With the next "Generator" page the process gets easier since the model understands ideas and conventions from existing code.
 
 Figma is using 4 variants of Fixel font. Each takes about 50kB. Ideally those should be bundled into single variable font to download less. In this case I'll just connect each variation individually. Though the fourth is used only for input labels which I think a bit excessive and as a tradeoff will give it font weight 600 instead.
+
+The next thing would be assembling the actual app. I threw requirements into model and iterated over plan. The generated code was somewhat working. Though years of react-router completely changing its API and bad practices used in react result in bad practices like updating states in effects while it could be used directly. This is went through and cleaned up by hands.
+
+Now I noticed outline button actually has strong resemblance with icon button so I can reuse its styles for it and make button--icon modifier adjust only paddings.
+
+Next testing the app over and over again noticing differences from figma like "Generating..." instead of spinner, editing existing letter instead of creating new one etc. All this LLM is able to handle once described.

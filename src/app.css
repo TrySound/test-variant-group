@@ -197,6 +197,8 @@ body {
   background-color: var(--button-bg);
   border: 1px solid transparent;
   transition: all var(--transition-fast);
+  /* for button links */
+  text-decoration: none;
 
   &:hover {
     background-color: var(--button-bg-hover);
@@ -238,25 +240,31 @@ body {
   }
 }
 
-/* Button Icon variant */
-.button--icon {
-  padding: 9px; /* +1px from border */
+/* Button Outline variant */
+.button--outline {
+  padding: 8px 16px;
   border: var(--border-field);
-  box-shadow: var(--shadow-subtle);
-  color: var(--color-text-icon);
   border-radius: var(--radius-md);
+  background-color: transparent;
+  color: var(--color-text-label);
+  box-shadow: var(--shadow-subtle);
 
   &:hover {
     background-color: hsl(216 16% 96%);
-    color: var(--color-text-icon);
+    color: var(--color-text-label);
   }
 
   &:disabled,
   &[aria-disabled="true"] {
     background-color: var(--button-icon-bg);
-    color: var(--color-text-icon);
+    color: var(--color-text-label);
     box-shadow: none;
   }
+}
+
+/* Button Icon variant */
+.button--icon {
+  padding: 9px; /* +1px from border */
 }
 
 /* Button Large variant */
@@ -266,23 +274,17 @@ body {
   font: var(--text-button-lg);
 }
 
-/* Button Secondary (outline) variant */
-.button--secondary {
-  padding: 16px 32px;
-  border: var(--border-field);
-  border-radius: var(--radius-md);
-  background-color: transparent;
-  color: var(--color-text-action);
-  box-shadow: var(--shadow-subtle);
+/* Icon Spinner Animation */
+.icon--spinner {
+  animation: spin 1s linear infinite;
+}
 
-  &:hover {
-    background-color: hsl(216 16% 96%);
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
   }
-
-  &:disabled,
-  &[aria-disabled="true"] {
-    background-color: transparent;
-    box-shadow: none;
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -297,6 +299,9 @@ body {
 
 .card-content {
   white-space: pre-line;
+  /* for content links */
+  text-decoration: none;
+  color: inherit;
   /* @todo replace with margin-trim: block; when widely supported */
   & > *:first-child {
     margin-top: 0;
@@ -371,6 +376,13 @@ body {
   color: var(--color-text-success);
 }
 
+.dialog {
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  padding: 0;
+}
+
 /***** Organisms *****/
 
 /* App Header */
@@ -423,9 +435,13 @@ body {
   align-items: center;
   text-align: center;
   gap: 32px;
-  background-color: var(--color-bg-primary);
+  background-color: var(--color-bg-secondary);
   border-radius: var(--radius-lg);
   padding: 60px 20px;
+}
+
+.cta-success {
+  background-color: var(--color-bg-primary);
 }
 
 .cta-content {
@@ -451,6 +467,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
+  margin-bottom: 48px;
 }
 
 @media (max-width: 768px) {
@@ -464,22 +481,10 @@ body {
   flex-direction: column;
 }
 
-.generator-form-actions {
-  display: grid;
-}
-
 .generator-preview {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.generator-preview .card {
-  flex: 1;
-}
-
-.generator-preview-placeholder {
-  color: var(--color-text-action);
+  /* text and actions */
+  grid-template-rows: 1fr max-content;
+  min-height: 600px;
 }
 
 /* Applications Page */

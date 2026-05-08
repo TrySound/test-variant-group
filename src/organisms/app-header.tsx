@@ -27,7 +27,11 @@ export const AppHeader = ({
             <Progress current={currentApplications} total={totalApplications} />
           )}
         </div>
-        <a href="/" className="button button--icon" aria-label="Home">
+        <a
+          href="/"
+          className="button button--outline button--icon"
+          aria-label="Home"
+        >
           <Icon name="home" />
         </a>
       </div>

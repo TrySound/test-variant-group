@@ -1,5 +1,5 @@
 export interface IconProps {
-  name: "home" | "trash" | "copy" | "plus" | "check" | "refresh";
+  name: "home" | "trash" | "copy" | "plus" | "check" | "refresh" | "spinner";
   size?: "sm" | "md" | "lg";
   className?: string;
 }
