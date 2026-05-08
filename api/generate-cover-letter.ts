@@ -1,21 +1,37 @@
-import { Hono } from "hono";
 import { generateText } from "ai";
 
-export const generateCoverLetterApp = new Hono();
-
-// Cover letter generation endpoint
-generateCoverLetterApp.post(async (c) => {
+export const generateCoverLetter = async (
+  request: Request,
+): Promise<Response> => {
+  if (request.method !== "POST") {
+    return Response.json(
+      { error: "Bad request" },
+      {
+        status: 400,
+      },
+    );
+  }
   try {
-    const body = await c.req.json();
+    const body = await request.json();
     const { jobTitle, companyName, jobDescription, userBackground } = body;
 
     if (!jobTitle || !companyName || !jobDescription || !userBackground) {
-      return c.json({ error: "Missing required fields" }, 400);
+      return Response.json(
+        { error: "Missing required fields" },
+        {
+          status: 400,
+        },
+      );
     }
 
     const apiKey = process.env.AI_GATEWAY_API_KEY;
     if (!apiKey) {
-      return c.json({ error: "API key not configured" }, 500);
+      return Response.json(
+        { error: "API key not configured" },
+        {
+          status: 500,
+        },
+      );
     }
 
     const prompt = `
@@ -36,18 +52,21 @@ Requirements:
 - Output raw text
 `;
 
-    console.log("before generation");
     const { text } = await generateText({
       model: "openai/gpt-5.4-nano",
       system:
         "You are a helpful assistant that writes professional cover letters.",
       prompt,
     });
-    console.log("after generation");
 
-    return c.text(text);
+    return new Response(text);
   } catch (error) {
     console.error("Error generating cover letter:", error);
-    return c.json({ error: "Internal server error" }, 500);
+    return Response.json(
+      { error: "Internal server error" },
+      {
+        status: 500,
+      },
+    );
   }
-});
+};
