@@ -1,17 +1,10 @@
 import { Hono } from "hono";
-import { cors } from "hono/cors";
 import { generateText } from "ai";
 
-export const app = new Hono();
-
-// CORS
-app.use("/*", cors());
-
-// Health check
-app.get("/api/health", (c) => c.json({ status: "ok" }));
+export const generateCoverLetterApp = new Hono();
 
 // Cover letter generation endpoint
-app.post("/api/generate-cover-letter", async (c) => {
+generateCoverLetterApp.post(async (c) => {
   try {
     const body = await c.req.json();
     const { jobTitle, companyName, jobDescription, userBackground } = body;
