@@ -53,16 +53,13 @@ export async function generatorAction({ request, params }: ActionFunctionArgs) {
   }
 
   try {
-    const result = await generateCoverLetter({
+    const generatedText = await generateCoverLetter({
       jobTitle: userData.jobTitle,
       companyName: userData.company,
       jobDescription:
         userData.details || "No specific job description provided.",
       userBackground: userData.skills,
-      tone: "professional",
     });
-
-    const generatedText = result.coverLetter;
 
     const letterId = existingId ?? newLetter?.id;
     if (letterId) {

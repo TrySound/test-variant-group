@@ -1,6 +1,7 @@
 import { Hono } from "hono";
 import { handle } from "@hono/node-server/vercel";
 import { cors } from "hono/cors";
+import { generateText } from "ai";
 
 export const app = new Hono();
 
@@ -14,27 +15,15 @@ app.get("/api/health", (c) => c.json({ status: "ok" }));
 app.post("/api/generate-cover-letter", async (c) => {
   try {
     const body = await c.req.json();
-    const {
-      jobTitle,
-      companyName,
-      jobDescription,
-      userBackground,
-      tone = "professional",
-    } = body;
+    const { jobTitle, companyName, jobDescription, userBackground } = body;
 
     if (!jobTitle || !companyName || !jobDescription || !userBackground) {
-      return c.json(
-        { error: "Missing required fields" },
-        400
-      );
+      return c.json({ error: "Missing required fields" }, 400);
     }
 
-    const apiKey = process.env.GOCODE_API_KEY;
+    const apiKey = process.env.AI_GATEWAY_API_KEY;
     if (!apiKey) {
-      return c.json(
-        { error: "API key not configured" },
-        500
-      );
+      return c.json({ error: "API key not configured" }, 500);
     }
 
     const prompt = `
@@ -48,63 +37,24 @@ ${userBackground}
 
 Requirements:
 - 3-4 paragraphs
-- ${tone} tone
-- Professional but conversational
+- Professional tone but conversational
 - Highlight relevant experience matching the job
 - Show enthusiasm for the company/role
 - No generic fluff, be specific where possible
+- Output raw text
 `;
 
-    const response = await fetch(
-      "https://opencode.ai/zen/go/v1/chat/completions",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          model: "kimi-k2.5",
-          messages: [
-            {
-              role: "system",
-              content:
-                "You are a helpful assistant that writes professional cover letters.",
-            },
-            { role: "user", content: prompt },
-          ],
-          temperature: 0.7,
-          max_tokens: 1500,
-        }),
-      }
-    );
+    const { text } = await generateText({
+      model: "openai/gpt-5.4-nano",
+      system:
+        "You are a helpful assistant that writes professional cover letters.",
+      prompt,
+    });
 
-    if (!response.ok) {
-      const errorData = await response.text();
-      console.error("OpenCode API error:", errorData);
-      return c.json(
-        { error: "Failed to generate cover letter" },
-        500
-      );
-    }
-
-    const data = await response.json();
-    const coverLetter = data.choices[0]?.message?.content;
-
-    if (!coverLetter) {
-      return c.json(
-        { error: "No cover letter generated" },
-        500
-      );
-    }
-
-    return c.json({ coverLetter });
+    return c.text(text);
   } catch (error) {
     console.error("Error generating cover letter:", error);
-    return c.json(
-      { error: "Internal server error" },
-      500
-    );
+    return c.json({ error: "Internal server error" }, 500);
   }
 });
 

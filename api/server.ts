@@ -1,5 +1,5 @@
 import { serve } from "@hono/node-server";
-import { app } from "./generate-cover-letter";
+import { app } from "./generate-cover-letter.ts";
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3001;
 
