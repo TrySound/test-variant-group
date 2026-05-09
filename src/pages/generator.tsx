@@ -92,7 +92,6 @@ const GeneratorForm = ({
 }) => {
   const isGenerating = fetcher.state === "submitting";
 
-  const [jobTitle, setJobTitle] = useState(letter?.jobTitle ?? "");
   const [details, setDetails] = useState(letter?.details ?? "");
   const generatedText =
     fetcher.data?.generatedText ?? letter?.generatedText ?? "";
@@ -115,12 +114,7 @@ const GeneratorForm = ({
         </h1>
       </div>
 
-      {/* reset the form when navigating from existing form to empty one */}
-      <fetcher.Form
-        method="post"
-        className="form-stack"
-        key={letter?.id ?? "empty"}
-      >
+      <fetcher.Form method="post" className="form-stack">
         <div className="form-row">
           <div className="form-group">
             <label className="label" htmlFor="jobTitle">
@@ -133,8 +127,7 @@ const GeneratorForm = ({
               placeholder="Product manager"
               required
               name="jobTitle"
-              value={jobTitle}
-              onChange={(e) => setJobTitle(e.target.value)}
+              defaultValue={letter?.jobTitle ?? ""}
             />
           </div>
           <div className="form-group">
@@ -241,7 +234,12 @@ export function Generator() {
   return (
     <main className="generator-page">
       <div className="generator-layout">
-        <GeneratorForm fetcher={fetcher} letter={letter ?? undefined} />
+        {/* reset the form when navigating from existing form to empty one */}
+        <GeneratorForm
+          key={letter?.id ?? "empty"}
+          fetcher={fetcher}
+          letter={letter ?? undefined}
+        />
 
         <section
           className="card generator-preview"
