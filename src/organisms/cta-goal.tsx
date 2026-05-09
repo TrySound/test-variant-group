@@ -9,7 +9,7 @@ export interface CtaGoalProps {
 
 export const CtaGoal = ({ current, total }: CtaGoalProps) => {
   return (
-    <section className="cta cta-success" aria-label="Create more applications">
+    <section className="cta cta-success cta-goal" aria-label="Create more applications">
       <div className="cta-content">
         <h2 className="text-heading-2">Hit your goal</h2>
         <p>

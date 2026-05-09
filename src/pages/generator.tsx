@@ -98,7 +98,7 @@ const GeneratorForm = ({
     fetcher.data?.generatedText ?? letter?.generatedText ?? "";
   const isDetailsValid = details.length <= MAX_DETAILS_LENGTH;
   return (
-    <section className="generator-form" aria-label="Application form">
+    <section aria-label="Application form">
       <div className="page-header">
         <h1
           className="page-header-title text-heading-1"
@@ -223,7 +223,7 @@ export function Generator() {
     fetcher.data?.generatedText ?? letter?.generatedText ?? "";
 
   return (
-    <main className="generator-page">
+    <main>
       <div className="generator-layout">
         {/* reset the form when navigating from existing form to empty one */}
         <GeneratorForm

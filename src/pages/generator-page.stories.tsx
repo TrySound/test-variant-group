@@ -25,11 +25,11 @@ const MAX_APPLICATIONS = 5;
 
 export const EmptyState = {
   render: () => (
-    <div className="generator-page">
+    <div className="page">
       <AppHeader currentApplications={3} totalApplications={MAX_APPLICATIONS} />
       <div className="generator-layout">
         {/* Left column - Form */}
-        <div className="generator-form">
+        <div>
           <div
             className="page-header"
             style={{ border: "none", paddingBottom: 0, marginBottom: "32px" }}
@@ -108,11 +108,11 @@ export const EmptyState = {
 
 export const GeneratedState = {
   render: () => (
-    <div className="generator-page">
+    <div className="page">
       <AppHeader currentApplications={4} totalApplications={MAX_APPLICATIONS} />
       <div className="generator-layout">
         {/* Left column - Form */}
-        <div className="generator-form">
+        <div>
           <div
             className="page-header"
             style={{ border: "none", paddingBottom: 0, marginBottom: "32px" }}

@@ -28,7 +28,7 @@ const MAX_APPLICATIONS = 5;
 
 export const ApplicationsPage = {
   render: () => (
-    <div className="applications-page">
+    <div className="page">
       <AppHeader
         currentApplications={Math.min(
           sampleApplications.length,

@@ -14,13 +14,13 @@ export function Layout() {
 
   return (
     <>
-      <div className="applications-page">
+      <div className="page">
         <AppHeader
           currentApplications={Math.min(count, MAX_APPLICATIONS)}
           totalApplications={MAX_APPLICATIONS}
         />
+        <Outlet />
       </div>
-      <Outlet />
     </>
   );
 }

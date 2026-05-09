@@ -82,6 +82,7 @@
 body {
   font: var(--text-body);
   color: var(--color-text-secondary);
+  margin: 0;
 }
 
 /***** Atoms *****/
@@ -456,53 +457,40 @@ body {
   }
 }
 
-/* Generator Page */
-.generator-page {
+/* Pages specific classes */
+
+.page {
   max-width: 1160px;
-  padding: 0 20px 60px;
+  padding: 0 20px 120px;
   margin: 0 auto;
 }
 
-.generator-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 48px;
-}
-
-@media (max-width: 768px) {
-  .generator-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-.generator-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.generator-preview {
-  /* text and actions */
-  grid-template-rows: 1fr max-content;
-  min-height: 600px;
-}
-
-/* Applications Page */
-.applications-page {
-  max-width: 1160px;
-  padding: 0 20px 60px;
-  margin: 0 auto;
+.cta-goal {
+  margin-top: 48px;
 }
 
 .applications-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px 16px;
-  margin-bottom: 48px;
-}
 
-@media (max-width: 768px) {
-  .applications-grid {
+  @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+}
+
+.generator-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.generator-preview {
+  /* text and actions */
+  grid-template-rows: 1fr max-content;
+  min-height: 600px;
 }
