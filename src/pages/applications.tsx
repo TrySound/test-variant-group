@@ -1,9 +1,9 @@
-import { useState } from "react";
 import { useLoaderData, Link, useFetcher } from "react-router";
 import { Icon } from "../atoms/icon";
 import { CtaGoal } from "../organisms/cta-goal";
 import { getCoverLetters } from "../lib/cover-letters-storage";
 import { MAX_APPLICATIONS } from "./layout";
+import { ButtonCopy } from "../organisms/button-copy";
 
 export function applicationsLoader() {
   const letters = getCoverLetters();
@@ -13,13 +13,6 @@ export function applicationsLoader() {
 export function Applications() {
   const { letters } = useLoaderData<typeof applicationsLoader>();
   const fetcher = useFetcher();
-  const [copiedId, setCopiedId] = useState<string | null>(null);
-
-  const handleCopy = async (text: string, id: string) => {
-    await navigator.clipboard.writeText(text);
-    setCopiedId(id);
-    setTimeout(() => setCopiedId(null), 2000);
-  };
 
   const handleDelete = (id: string) => {
     fetcher.submit(null, {
@@ -101,20 +94,7 @@ export function Applications() {
                     </div>
                   </div>
                 </dialog>
-                <button
-                  className="button"
-                  onClick={() => handleCopy(letter.generatedText, letter.id)}
-                >
-                  {copiedId === letter.id ? (
-                    <>
-                      Copied! <Icon name="check" />
-                    </>
-                  ) : (
-                    <>
-                      Copy to clipboard <Icon name="copy" />
-                    </>
-                  )}
-                </button>
+                <ButtonCopy text={letter.generatedText} />
               </div>
             </article>
           ))}

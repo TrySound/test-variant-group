@@ -18,6 +18,7 @@ import {
 } from "../lib/cover-letters-storage";
 import { generateCoverLetter } from "../lib/api";
 import { MAX_APPLICATIONS } from "./layout";
+import { ButtonCopy } from "../organisms/button-copy";
 
 const MAX_DETAILS_LENGTH = 1200;
 
@@ -223,13 +224,6 @@ export function Generator() {
 
   const generatedText =
     fetcher.data?.generatedText ?? letter?.generatedText ?? "";
-  const [isCopied, setIsCopied] = useState(false);
-
-  const handleCopy = async () => {
-    await navigator.clipboard.writeText(generatedText);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
-  };
 
   return (
     <main className="generator-page">
@@ -251,23 +245,7 @@ export function Generator() {
           </div>
           <div className="card-actions">
             <span>{/* fill left space */}</span>
-            <button
-              className="button"
-              onClick={handleCopy}
-              disabled={!generatedText}
-            >
-              {isCopied ? (
-                <>
-                  Copied!
-                  <Icon name="check" />
-                </>
-              ) : (
-                <>
-                  Copy to clipboard
-                  <Icon name="copy" />
-                </>
-              )}
-            </button>
+            <ButtonCopy text={generatedText} />
           </div>
         </section>
       </div>
