@@ -39,10 +39,6 @@ export function Applications() {
               Create your first cover letter to get started on your job search
               journey.
             </p>
-            <Link className="button button--primary button--lg" to="/generator">
-              <Icon name="plus" size="lg" />
-              Create New Application
-            </Link>
           </div>
         </section>
       ) : (
