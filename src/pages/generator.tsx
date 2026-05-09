@@ -99,10 +99,7 @@ const GeneratorForm = ({
   const isDetailsValid = details.length <= MAX_DETAILS_LENGTH;
   return (
     <section className="generator-form" aria-label="Application form">
-      <div
-        className="page-header"
-        style={{ border: "none", paddingBottom: 0, marginBottom: "32px" }}
-      >
+      <div className="page-header">
         <h1
           className="page-header-title text-heading-1"
           style={{
