@@ -1,9 +1,4 @@
-export interface CoverLetterRequest {
-  jobTitle: string;
-  companyName: string;
-  jobDescription: string;
-  userBackground: string;
-}
+import type { CoverLetterRequest } from "../../api/generate-cover-letter";
 
 export interface ApiError {
   error: string;

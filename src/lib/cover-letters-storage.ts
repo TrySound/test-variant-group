@@ -1,12 +1,27 @@
-export interface CoverLetter {
-  id: string;
-  jobTitle: string;
-  company: string;
-  skills: string;
-  details: string;
-  generatedText: string;
-  createdAt: number;
-}
+import * as v from "valibot";
+
+export const coverLetterSchema = v.object({
+  id: v.pipe(
+    v.string("ID must be a string"),
+    v.uuid("ID must be a valid UUID"),
+  ),
+  jobTitle: v.pipe(
+    v.string("Job title must be a string"),
+    v.minLength(1, "Job title is required"),
+  ),
+  company: v.pipe(
+    v.string("Company must be a string"),
+    v.minLength(1, "Company is required"),
+  ),
+  skills: v.string("Skills must be a string"),
+  details: v.string("Details must be a string"),
+  generatedText: v.string("Generated text must be a string"),
+  createdAt: v.number("Created at must be a number"),
+});
+
+export type CoverLetter = v.InferInput<typeof coverLetterSchema>;
+
+export const coverLettersArraySchema = v.array(coverLetterSchema);
 
 const STORAGE_KEY = "cover-letters";
 
@@ -15,7 +30,7 @@ export function getCoverLetters(): CoverLetter[] {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (!stored) return [];
   try {
-    return JSON.parse(stored);
+    return v.parse(coverLettersArraySchema, JSON.parse(stored));
   } catch {
     return [];
   }
