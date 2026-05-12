@@ -101,7 +101,7 @@ const GeneratorForm = ({
     <section aria-label="Application form">
       <div className="page-header">
         <h1
-          className="page-header-title text-heading-1"
+          className="page-header-title text-heading-2"
           style={{
             color: letter
               ? "var(--color-text-primary)"

@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { Icon } from "../atoms/icon";
 import { Progress } from "../atoms/progress";
 import { SuccessIndicator } from "../atoms/success-indicator";
@@ -15,7 +16,9 @@ export const AppHeader = ({
 
   return (
     <header className="app-header">
-      <img src="/logo.svg" alt="Alt+Shift" width="179" height="48" />
+      <Link to="/" aria-label="Home">
+        <img src="/logo.svg" alt="Alt+Shift" width="179" height="48" />
+      </Link>
       <div className="app-header-toolbar">
         <div className="app-header-progress">
           <span>
@@ -27,13 +30,13 @@ export const AppHeader = ({
             <Progress current={currentApplications} total={totalApplications} />
           )}
         </div>
-        <a
-          href="/"
+        <Link
+          to="/"
           className="button button--outline button--icon"
           aria-label="Home"
         >
           <Icon name="home" />
-        </a>
+        </Link>
       </div>
     </header>
   );

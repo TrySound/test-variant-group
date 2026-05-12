@@ -85,6 +85,10 @@ body {
   margin: 0;
 }
 
+img {
+  display: block;
+}
+
 /***** Atoms *****/
 
 /* Typography */
@@ -192,21 +196,24 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 0;
+  padding: 2px 4px;
+  /* unhovered button should align with the content */
+  margin: 0 -4px;
   font: var(--text-button);
   color: var(--color-text-action);
-  background-color: var(--button-bg);
+  background-color: transparent;
   border: 1px solid transparent;
+  border-radius: var(--radius-md);
   transition: all var(--transition-fast);
   /* for button links */
   text-decoration: none;
 
   &:hover {
-    background-color: var(--button-bg-hover);
-    color: hsl(from var(--color-text-action) h s calc(l - 15));
+    background-color: var(--color-bg-muted);
   }
 
   &:focus-visible {
+    background-color: var(--color-bg-muted);
     outline: none;
     border-color: var(--color-outline);
     box-shadow: var(--shadow-active);
@@ -222,7 +229,7 @@ body {
 /* Button Primary variant */
 .button--primary {
   padding: 8px 16px;
-  border-radius: var(--radius-md);
+  margin: 0;
   background-color: var(--color-bg-action);
   color: #ffffff;
   box-shadow: var(--shadow-subtle);
@@ -244,20 +251,20 @@ body {
 /* Button Outline variant */
 .button--outline {
   padding: 8px 16px;
+  margin: 0;
   border: var(--border-field);
-  border-radius: var(--radius-md);
   background-color: transparent;
   color: var(--color-text-label);
   box-shadow: var(--shadow-subtle);
 
   &:hover {
-    background-color: hsl(216 16% 96%);
+    background-color: var(--color-bg-muted);
     color: var(--color-text-label);
   }
 
   &:disabled,
   &[aria-disabled="true"] {
-    background-color: var(--button-icon-bg);
+    background-color: transparent;
     color: var(--color-text-label);
     box-shadow: none;
   }
