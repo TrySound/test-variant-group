@@ -4,22 +4,18 @@ import * as v from "valibot";
 export const coverLetterRequestSchema = v.object({
   jobTitle: v.pipe(
     v.string("Job title must be a string"),
-    v.minLength(1, "Job title is required"),
     v.maxLength(200, "Job title must be 200 characters or less"),
   ),
   companyName: v.pipe(
     v.string("Company name must be a string"),
-    v.minLength(1, "Company name is required"),
     v.maxLength(200, "Company name must be 200 characters or less"),
   ),
   jobDescription: v.pipe(
     v.string("Job description must be a string"),
-    v.minLength(10, "Job description must be at least 10 characters"),
     v.maxLength(5000, "Job description must be 5000 characters or less"),
   ),
   userBackground: v.pipe(
     v.string("User background must be a string"),
-    v.minLength(10, "User background must be at least 10 characters"),
     v.maxLength(5000, "User background must be 5000 characters or less"),
   ),
 });
