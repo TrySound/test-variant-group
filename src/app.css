@@ -190,6 +190,10 @@ img {
   }
 }
 
+.form-error {
+  color: var(--color-text-invalid);
+}
+
 .form-group {
   display: grid;
   gap: 8px;

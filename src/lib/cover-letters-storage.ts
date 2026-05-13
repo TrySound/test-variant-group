@@ -5,14 +5,8 @@ export const coverLetterSchema = v.object({
     v.string("ID must be a string"),
     v.uuid("ID must be a valid UUID"),
   ),
-  jobTitle: v.pipe(
-    v.string("Job title must be a string"),
-    v.minLength(1, "Job title is required"),
-  ),
-  company: v.pipe(
-    v.string("Company must be a string"),
-    v.minLength(1, "Company is required"),
-  ),
+  jobTitle: v.string("Job title must be a string"),
+  company: v.string("Company must be a string"),
   skills: v.string("Skills must be a string"),
   details: v.string("Details must be a string"),
   generatedText: v.string("Generated text must be a string"),

@@ -35,33 +35,35 @@ export function generatorLoader({ params }: LoaderFunctionArgs) {
 export async function generatorAction({ request, params }: ActionFunctionArgs) {
   const formData = await request.formData();
 
-  const userData = {
-    jobTitle: formData.get("jobTitle")?.toString() ?? "",
-    company: formData.get("company")?.toString() ?? "",
-    skills: formData.get("skills")?.toString() ?? "",
-    details: formData.get("details")?.toString() ?? "",
-  };
-
-  const existingId = params.id;
-
-  // update user input immediately
-  let newLetter: ReturnType<typeof saveCoverLetter> | null = null;
-
-  if (existingId) {
-    updateCoverLetterUserData(existingId, userData);
-  } else {
-    // Create new with placeholder
-    newLetter = saveCoverLetter(userData);
-  }
-
   try {
+    const userData = {
+      jobTitle: formData.get("jobTitle")?.toString() ?? "",
+      company: formData.get("company")?.toString() ?? "",
+      skills: formData.get("skills")?.toString() ?? "",
+      details: formData.get("details")?.toString() ?? "",
+    };
+
+    const existingId = params.id;
+
+    // update user input immediately
+    let newLetter: ReturnType<typeof saveCoverLetter> | null = null;
+
+    if (existingId) {
+      updateCoverLetterUserData(existingId, userData);
+    }
+
     const generatedText = await generateCoverLetter({
       jobTitle: userData.jobTitle,
       companyName: userData.company,
+      userBackground: userData.skills,
       jobDescription:
         userData.details || "No specific job description provided.",
-      userBackground: userData.skills,
     });
+
+    // Create new cover letter after generating is completed
+    if (!existingId) {
+      newLetter = saveCoverLetter(userData);
+    }
 
     const letterId = existingId ?? newLetter?.id;
     if (letterId) {
@@ -73,14 +75,11 @@ export async function generatorAction({ request, params }: ActionFunctionArgs) {
       return redirect(`/generator/${newLetter.id}`);
     }
 
-    return {
-      generatedText,
-    };
+    return {};
   } catch (error) {
     console.error("Failed to generate cover letter:", error);
     return {
-      generatedText:
-        "Error: Failed to generate cover letter. Please try again.",
+      error: "Failed to generate cover letter. Please try again.",
     };
   }
 }
@@ -95,8 +94,7 @@ const GeneratorForm = ({
   const isGenerating = fetcher.state === "submitting";
 
   const [details, setDetails] = useState(letter?.details ?? "");
-  const generatedText =
-    fetcher.data?.generatedText ?? letter?.generatedText ?? "";
+  const generatedText = letter?.generatedText ?? "";
   const isDetailsValid = details.length <= MAX_DETAILS_LENGTH;
   return (
     <section aria-label="Application form">
@@ -113,7 +111,12 @@ const GeneratorForm = ({
         </h1>
       </div>
 
-      <fetcher.Form method="post" className="form-stack">
+      <fetcher.Form
+        method="post"
+        className="form-stack"
+        onInput={() => fetcher.reset()}
+        onSubmit={() => fetcher.reset()}
+      >
         <div className="form-row">
           <div className="form-group">
             <label className="label" htmlFor="jobTitle">
@@ -181,6 +184,10 @@ const GeneratorForm = ({
           </div>
         </div>
 
+        {fetcher.data?.error && (
+          <div className="form-error">{fetcher.data?.error}</div>
+        )}
+
         {!generatedText ? (
           <button className="button button--primary button--lg">
             {isGenerating ? (
@@ -211,7 +218,18 @@ const GeneratorForm = ({
             )}
           </button>
         )}
+        <button
+          className="button button--outline button--lg"
+          form="failed-form"
+        >
+          Submit error
+        </button>
       </fetcher.Form>
+      <fetcher.Form
+        method="post"
+        className="form-stack"
+        id="failed-form"
+      ></fetcher.Form>
     </section>
   );
 };
@@ -220,8 +238,7 @@ export function Generator() {
   const { letter, letters } = useLoaderData<typeof generatorLoader>();
   const fetcher = useFetcher<typeof generatorAction>();
 
-  const generatedText =
-    fetcher.data?.generatedText ?? letter?.generatedText ?? "";
+  const generatedText = letter?.generatedText ?? "";
 
   return (
     <main>

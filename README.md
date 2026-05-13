@@ -37,9 +37,11 @@ There are still things to improve, specifically spacing is hardcoded and doesn't
 
 ## Feedback
 
+- improve error handling, no longer saves new application when generation failed
 - replace changing color on hover with more visible background on hover to default (ghost) buttons
 - use Link component for home link, ideally framework should automatically detect all relative links on the page (svelte for example does it without wrapper)
 - added link around logo in app header
 - added SVG favicon based on logo
 - split styles into css modules if there is component implementation, design system is still centralized in global app.css
 - replaced dialog with popover api and anchor positioning, in older browsers polyfills make it behaves similar to non-modal dialog and centered on the page
+- fixed the link in repo description to correct netlify deploy

@@ -90,7 +90,7 @@ export const Icon: Story = {
           gap: "8px",
         }}
       >
-        <IconComponent name="spinner" className="icon--spinner" />
+        <IconComponent name="spinner" />
         <span>spinner</span>
       </div>
     </div>
