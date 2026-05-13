@@ -37,16 +37,16 @@ There are still things to improve, specifically spacing is hardcoded and doesn't
 
 ## Feedback
 
-- improve error handling, no longer saves new application when generation failed
-- replace changing color on hover with more visible background on hover to default (ghost) buttons
-- use Link component for home link, ideally framework should automatically detect all relative links on the page (svelte for example does it without wrapper)
+- improved error handling, no longer saves new application when generation failed
+- replaced changing color on hover with more visible background on hover to default (ghost) buttons
+- used Link component for home link, ideally framework should automatically detect all relative links on the page (svelte for example does it without wrapper)
 - added link around logo in app header
 - added SVG favicon based on logo
-- split styles into css modules if there is component implementation, design system is still centralized in global app.css
+- splitted styles into css modules if there is component implementation, design system is still centralized in global app.css
 - moved MAX_APPLICATIONS into storage module, though stories are using own for testing, wasn't left by accident
 - moved src/pages/layout.tsx to src/layout.tsx
 - UI now is more aligned with figma
 - replaced dialog with popover api and anchor positioning, in older browsers polyfills make it behaves similar to non-modal dialog and centered on the page
-- fill job title and company name on any change in inputs instead of only submit, though this was not obvious from requirements or figma
+- fillled job title and company name on any change in inputs instead of only submit, though this was not obvious from requirements or figma
 - improved mobile with fluid typography
 - fixed the link in repo description to correct netlify deploy
