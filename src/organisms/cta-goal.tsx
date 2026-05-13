@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { Icon } from "../atoms/icon";
 import { Progress } from "../atoms/progress";
+import styles from "./cta-goal.module.css";
 
 export interface CtaGoalProps {
   current: number;
@@ -9,7 +10,7 @@ export interface CtaGoalProps {
 
 export const CtaGoal = ({ current, total }: CtaGoalProps) => {
   return (
-    <section className="cta cta-success cta-goal" aria-label="Create more applications">
+    <section className={`cta ${styles.goal}`} aria-label="Create more applications">
       <div className="cta-content">
         <h2 className="text-heading-2">Hit your goal</h2>
         <p>
@@ -21,7 +22,7 @@ export const CtaGoal = ({ current, total }: CtaGoalProps) => {
           Create new
         </Link>
       </div>
-      <div className="cta-content">
+      <div className='cta-content'>
         <Progress current={current} total={total} variant="dashes" />
         <p>
           {current} out of {total}

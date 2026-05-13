@@ -19,6 +19,7 @@ import {
 import { generateCoverLetter } from "../lib/api";
 import { MAX_APPLICATIONS } from "./layout";
 import { ButtonCopy } from "../organisms/button-copy";
+import styles from "./generator.module.css";
 
 const MAX_DETAILS_LENGTH = 1200;
 
@@ -187,7 +188,7 @@ const GeneratorForm = ({
                 {/* unbreakable space preserves the height of button content
                       to avoid slight jump when loader appears and hides */}
                 &nbsp;
-                <Icon name="spinner" className="icon--spinner" />
+                <Icon name="spinner" />
                 &nbsp;
               </>
             ) : (
@@ -199,7 +200,7 @@ const GeneratorForm = ({
             {isGenerating ? (
               <>
                 &nbsp;
-                <Icon name="spinner" className="icon--spinner" />
+                <Icon name="spinner" />
                 &nbsp;
               </>
             ) : (
@@ -224,7 +225,7 @@ export function Generator() {
 
   return (
     <main>
-      <div className="generator-layout">
+      <div className={styles.layout}>
         {/* reset the form when navigating from existing form to empty one */}
         <GeneratorForm
           key={letter?.id ?? "empty"}
@@ -233,7 +234,7 @@ export function Generator() {
         />
 
         <section
-          className="card generator-preview"
+          className={`card ${styles.preview}`}
           aria-label="Preview personalized job application"
         >
           <div className="card-content">

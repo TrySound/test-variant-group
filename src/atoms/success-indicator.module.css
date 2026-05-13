@@ -1,0 +1,10 @@
+.indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-bg-success);
+  color: var(--color-text-success);
+}

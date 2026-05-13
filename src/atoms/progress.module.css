@@ -1,0 +1,25 @@
+.progress {
+  display: flex;
+  gap: 4px;
+}
+
+.dashes {
+  gap: 8px;
+}
+
+.item {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text-primary);
+  opacity: 0.24;
+}
+
+.itemActive {
+  opacity: 1;
+}
+
+.dashes .item {
+  width: 32px;
+  border-radius: var(--radius-sm);
+}

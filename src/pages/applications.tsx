@@ -4,6 +4,7 @@ import { CtaGoal } from "../organisms/cta-goal";
 import { getCoverLetters } from "../lib/cover-letters-storage";
 import { MAX_APPLICATIONS } from "./layout";
 import { ButtonCopy } from "../organisms/button-copy";
+import styles from "./applications.module.css";
 
 export function applicationsLoader() {
   const letters = getCoverLetters();
@@ -23,7 +24,7 @@ export function Applications() {
 
   return (
     <main className="applications-page">
-      <header className="page-header">
+      <header className='page-header'>
         <h1 className="page-header-title text-heading-1">Applications</h1>
         <Link to="/generator" className="button button--primary">
           <Icon name="plus" />
@@ -42,7 +43,7 @@ export function Applications() {
           </div>
         </section>
       ) : (
-        <section className="applications-grid" aria-label="Applications">
+        <section className={styles.grid} aria-label="Applications">
           {letters.map((letter) => (
             <article key={letter.id} className="card">
               <Link

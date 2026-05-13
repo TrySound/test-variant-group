@@ -1,0 +1,24 @@
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 767px) {
+  .progress {
+    display: none;
+  }
+}

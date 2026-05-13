@@ -1,3 +1,5 @@
+import styles from "./progress.module.css";
+
 export interface ProgressProps {
   current: number;
   total: number;
@@ -10,7 +12,7 @@ export const Progress = ({
   variant = "dots",
 }: ProgressProps) => {
   const progressClass =
-    variant === "dashes" ? "progress progress--dashes" : "progress";
+    variant === "dashes" ? `${styles.progress} ${styles.dashes}` : styles.progress;
   return (
     <div className={progressClass}>
       {Array.from({ length: total }).map((_, index) => (
@@ -18,8 +20,8 @@ export const Progress = ({
           key={index}
           className={
             index < current
-              ? "progress-item progress-item--active"
-              : "progress-item"
+              ? `${styles.item} ${styles.itemActive}`
+              : styles.item
           }
         />
       ))}

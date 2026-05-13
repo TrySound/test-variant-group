@@ -15,7 +15,7 @@ export const PageHeader: Story = {
   render: () => (
     <div style={{ display: "grid", gap: "24px" }}>
       <div className="page-header">
-        <h1 className="page-header-title text-heading-1">Applications</h1>
+        <h1 className="page-header-title text-heading-2">Applications</h1>
         <button className="button button--primary">
           <Icon name="plus" />
           Create New
@@ -23,7 +23,7 @@ export const PageHeader: Story = {
       </div>
 
       <div className="page-header">
-        <h1 className="page-header-title text-heading-1">Cover Letters</h1>
+        <h1 className="page-header-title text-heading-2">Cover Letters</h1>
         <button className="button button--primary">
           <Icon name="plus" />
           Create New
@@ -31,7 +31,7 @@ export const PageHeader: Story = {
       </div>
 
       <div className="page-header">
-        <h1 className="page-header-title text-heading-1">Resumes</h1>
+        <h1 className="page-header-title text-heading-2">Resumes</h1>
         <button className="button button--primary">
           <Icon name="plus" />
           Create New

@@ -1,6 +1,7 @@
 import { Icon } from "../atoms/icon";
 import { AppHeader } from "../organisms/app-header";
 import { CtaGoal } from "../organisms/cta-goal";
+import styles from './generator.module.css';
 
 const generatedCoverLetter = `Dear Apple Team,
 
@@ -27,7 +28,7 @@ export const EmptyState = {
   render: () => (
     <div className="page">
       <AppHeader currentApplications={3} totalApplications={MAX_APPLICATIONS} />
-      <div className="generator-layout">
+      <div className={styles.layout}>
         {/* Left column - Form */}
         <div>
           <div
@@ -35,7 +36,7 @@ export const EmptyState = {
             style={{ border: "none", paddingBottom: 0, marginBottom: "32px" }}
           >
             <h1
-              className="page-header-title text-heading-1"
+              className="page-header-title text-heading-2"
               style={{ color: "var(--color-text-muted)" }}
             >
               New application
@@ -87,9 +88,9 @@ export const EmptyState = {
         </div>
 
         {/* Right column - Preview */}
-        <div className="generator-preview">
+        <div className={styles.preview}>
           <div className="card" style={{ minHeight: "600px" }}>
-            <div className="generator-preview-placeholder">
+            <div>
               Your personalized job application will appear here...
             </div>
             <div className="card-actions" style={{ marginTop: "auto" }}>
@@ -110,14 +111,14 @@ export const GeneratedState = {
   render: () => (
     <div className="page">
       <AppHeader currentApplications={4} totalApplications={MAX_APPLICATIONS} />
-      <div className="generator-layout">
+      <div className={styles.layout}>
         {/* Left column - Form */}
         <div>
           <div
             className="page-header"
             style={{ border: "none", paddingBottom: 0, marginBottom: "32px" }}
           >
-            <h1 className="page-header-title text-heading-1">
+            <h1 className="page-header-title text-heading-2">
               Product manager, Apple
             </h1>
           </div>
@@ -167,7 +168,7 @@ export const GeneratedState = {
         </div>
 
         {/* Right column - Preview */}
-        <div className="generator-preview">
+        <div className={styles.preview}>
           <div className="card" style={{ minHeight: "600px" }}>
             <div className="card-content">{generatedCoverLetter}</div>
             <div className="card-actions" style={{ marginTop: "auto" }}>

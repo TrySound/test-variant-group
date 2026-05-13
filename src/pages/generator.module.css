@@ -1,0 +1,17 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.preview {
+  display: grid;
+  grid-template-rows: 1fr max-content;
+  min-height: 600px;
+}

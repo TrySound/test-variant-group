@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { Icon } from "../atoms/icon";
 import { Progress } from "../atoms/progress";
 import { SuccessIndicator } from "../atoms/success-indicator";
+import styles from "./app-header.module.css";
 
 export interface AppHeaderProps {
   currentApplications: number;
@@ -15,12 +16,12 @@ export const AppHeader = ({
   const isComplete = currentApplications >= totalApplications;
 
   return (
-    <header className="app-header">
+    <header className={styles.appHeader}>
       <Link to="/" aria-label="Home">
         <img src="/logo.svg" alt="Alt+Shift" width="179" height="48" />
       </Link>
-      <div className="app-header-toolbar">
-        <div className="app-header-progress">
+      <div className={styles.toolbar}>
+        <div className={styles.progress}>
           <span>
             {currentApplications}/{totalApplications} applications generated
           </span>

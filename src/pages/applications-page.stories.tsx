@@ -1,6 +1,7 @@
 import { Icon } from "../atoms/icon";
 import { AppHeader } from "../organisms/app-header";
 import { CtaGoal } from "../organisms/cta-goal";
+import styles from "./applications.module.css";
 
 const preview = `Dear Stripe team,
 
@@ -43,7 +44,7 @@ export const ApplicationsPage = {
           Create New
         </button>
       </div>
-      <div className="applications-grid">
+      <div className={styles.grid}>
         {sampleApplications.map((app) => (
           <div key={app.id} className="card">
             <div className="card-content card-content--collapsed">

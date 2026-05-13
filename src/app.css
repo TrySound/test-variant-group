@@ -108,7 +108,6 @@ img {
   display: none;
 }
 
-
 /***** Atoms *****/
 
 /* Typography */
@@ -241,8 +240,9 @@ img {
 
   &:disabled,
   &[aria-disabled="true"] {
-    opacity: 0.5;
+    background-color: transparent;
     color: var(--color-text-action);
+    opacity: 0.5;
   }
 }
 
@@ -302,20 +302,6 @@ img {
   font: var(--text-button-lg);
 }
 
-/* Icon Spinner Animation */
-.icon--spinner {
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Card */
 .card {
   display: grid;
@@ -369,45 +355,7 @@ img {
   align-items: center;
 }
 
-/* Progress */
-.progress {
-  display: flex;
-  gap: 4px;
-}
-
-.progress--dashes {
-  gap: 8px;
-}
-
-.progress-item {
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-text-primary);
-  opacity: 0.24;
-}
-
-.progress-item--active {
-  opacity: 1;
-}
-
-.progress--dashes .progress-item {
-  width: 32px;
-  border-radius: var(--radius-sm);
-}
-
-/* Success Indicator */
-.success-indicator {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-full);
-  background-color: var(--color-bg-success);
-  color: var(--color-text-success);
-}
-
+/* Popover */
 .popover {
   background-color: transparent;
   color: inherit;
@@ -421,29 +369,6 @@ img {
 }
 
 /***** Organisms *****/
-
-/* App Header */
-.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px 0;
-}
-
-.app-header-toolbar {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.app-header-progress {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  @media (max-width: 767px) {
-    display: none;
-  }
-}
 
 /* Page Header */
 .page-header {
@@ -465,7 +390,6 @@ img {
 }
 
 /* CTA */
-
 .cta {
   display: flex;
   flex-direction: column;
@@ -475,10 +399,6 @@ img {
   background-color: var(--color-bg-secondary);
   border-radius: var(--radius-lg);
   padding: 60px 20px;
-}
-
-.cta-success {
-  background-color: var(--color-bg-primary);
 }
 
 .cta-content {
@@ -493,40 +413,8 @@ img {
   }
 }
 
-/* Pages specific classes */
-
 .page {
   max-width: 1160px;
   padding: 0 20px 120px;
   margin: 0 auto;
-}
-
-.cta-goal {
-  margin-top: 48px;
-}
-
-.applications-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px 16px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.generator-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
-}
-
-.generator-preview {
-  /* text and actions */
-  grid-template-rows: 1fr max-content;
-  min-height: 600px;
 }

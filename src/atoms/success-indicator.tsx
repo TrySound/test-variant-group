@@ -1,12 +1,9 @@
 import { Icon } from "./icon";
+import styles from "./success-indicator.module.css";
 
-export interface SuccessIndicatorProps {
-  className?: string;
-}
-
-export const SuccessIndicator = ({ className = "" }: SuccessIndicatorProps) => {
+export const SuccessIndicator = () => {
   return (
-    <div className={`success-indicator ${className}`.trim()}>
+    <div className={styles.indicator}>
       <Icon name="check" />
     </div>
   );

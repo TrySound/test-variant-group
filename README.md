@@ -41,4 +41,5 @@ There are still things to improve, specifically spacing is hardcoded and doesn't
 - use Link component for home link, ideally framework should automatically detect all relative links on the page (svelte for example does it without wrapper)
 - added link around logo in app header
 - added SVG favicon based on logo
+- split styles into css modules if there is component implementation, design system is still centralized in global app.css
 - replaced dialog with popover api and anchor positioning, in older browsers polyfills make it behaves similar to non-modal dialog and centered on the page
