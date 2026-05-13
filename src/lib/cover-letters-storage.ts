@@ -1,5 +1,7 @@
 import * as v from "valibot";
 
+export const MAX_APPLICATIONS = 5;
+
 export const coverLetterSchema = v.object({
   id: v.pipe(
     v.string("ID must be a string"),

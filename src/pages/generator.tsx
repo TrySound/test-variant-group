@@ -15,9 +15,9 @@ import {
   updateCoverLetterUserData,
   updateCoverLetterResult,
   type CoverLetter,
+  MAX_APPLICATIONS,
 } from "../lib/cover-letters-storage";
 import { generateCoverLetter } from "../lib/api";
-import { MAX_APPLICATIONS } from "./layout";
 import { ButtonCopy } from "../organisms/button-copy";
 import styles from "./generator.module.css";
 
@@ -93,6 +93,8 @@ const GeneratorForm = ({
 }) => {
   const isGenerating = fetcher.state === "submitting";
 
+  const [jobTitle, setJobTitle] = useState(letter?.jobTitle ?? "");
+  const [company, setCompany] = useState(letter?.company ?? "");
   const [details, setDetails] = useState(letter?.details ?? "");
   const generatedText = letter?.generatedText ?? "";
   const isDetailsValid = details.length <= MAX_DETAILS_LENGTH;
@@ -102,12 +104,12 @@ const GeneratorForm = ({
         <h1
           className="page-header-title text-heading-2"
           style={{
-            color: letter
+            color: jobTitle || company
               ? "var(--color-text-primary)"
               : "var(--color-text-muted)",
           }}
         >
-          {letter ? `${letter.jobTitle}, ${letter.company}` : "New application"}
+          {jobTitle || company ? `${jobTitle}, ${company}` : "New application"}
         </h1>
       </div>
 
@@ -129,7 +131,8 @@ const GeneratorForm = ({
               placeholder="Product manager"
               required
               name="jobTitle"
-              defaultValue={letter?.jobTitle ?? ""}
+              value={jobTitle}
+              onChange={(event) => setJobTitle(event.currentTarget.value)}
             />
           </div>
           <div className="form-group">
@@ -143,7 +146,8 @@ const GeneratorForm = ({
               placeholder="Apple"
               required
               name="company"
-              defaultValue={letter?.company ?? ""}
+              value={company}
+              onChange={(event) => setCompany(event.currentTarget.value)}
             />
           </div>
         </div>

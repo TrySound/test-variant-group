@@ -43,5 +43,8 @@ There are still things to improve, specifically spacing is hardcoded and doesn't
 - added link around logo in app header
 - added SVG favicon based on logo
 - split styles into css modules if there is component implementation, design system is still centralized in global app.css
+- moved MAX_APPLICATIONS into storage module, though stories are using own for testing, wasn't left by accident
+- moved src/pages/layout.tsx to src/layout.tsx
 - replaced dialog with popover api and anchor positioning, in older browsers polyfills make it behaves similar to non-modal dialog and centered on the page
+- Fill job title and company name on any change in inputs instead of only submit, though this was not obvious from requirements or figma
 - fixed the link in repo description to correct netlify deploy

@@ -1,8 +1,7 @@
 import { useLoaderData, Link, useFetcher } from "react-router";
 import { Icon } from "../atoms/icon";
 import { CtaGoal } from "../organisms/cta-goal";
-import { getCoverLetters } from "../lib/cover-letters-storage";
-import { MAX_APPLICATIONS } from "./layout";
+import { getCoverLetters, MAX_APPLICATIONS } from "../lib/cover-letters-storage";
 import { ButtonCopy } from "../organisms/button-copy";
 import styles from "./applications.module.css";
 

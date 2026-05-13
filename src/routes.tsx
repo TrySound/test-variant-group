@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router";
-import { Layout, layoutLoader } from "./pages/layout";
+import { Layout, layoutLoader } from "./layout";
 import { Applications, applicationsLoader } from "./pages/applications";
 import { Generator, generatorLoader, generatorAction } from "./pages/generator";
 import { deleteCoverLetter } from "./lib/cover-letters-storage";

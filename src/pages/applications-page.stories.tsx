@@ -25,6 +25,7 @@ export default {
   },
 };
 
+// not reused for testing
 const MAX_APPLICATIONS = 5;
 
 export const ApplicationsPage = {
