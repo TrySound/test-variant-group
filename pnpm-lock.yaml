@@ -8,12 +8,18 @@ importers:
 
   .:
     dependencies:
+      '@oddbird/popover-polyfill':
+        specifier: ^0.6.1
+        version: 0.6.1
       ai:
         specifier: ^6.0.176
         version: 6.0.176(zod@4.4.3)
       hono:
         specifier: ^4.7.5
         version: 4.12.18
+      invokers-polyfill:
+        specifier: ^1.0.3
+        version: 1.0.3
       react:
         specifier: ^19.2.6
         version: 19.2.6
@@ -26,9 +32,6 @@ importers:
       valibot:
         specifier: ^1.4.0
         version: 1.4.0(typescript@6.0.3)
-      vite:
-        specifier: ^8.0.10
-        version: 8.0.10(@types/node@25.6.2)(esbuild@0.27.7)(tsx@4.21.0)
     devDependencies:
       '@hono/node-server':
         specifier: ^1.14.0
@@ -60,6 +63,9 @@ importers:
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
+      vite:
+        specifier: ^8.0.10
+        version: 8.0.10(@types/node@25.6.2)(esbuild@0.27.7)(tsx@4.21.0)
 
 packages:
 
@@ -354,6 +360,9 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1
       '@emnapi/runtime': ^1.7.1
+
+  '@oddbird/popover-polyfill@0.6.1':
+    resolution: {integrity: sha512-Papau51NPG+NajXvoEHCNT1CBJv4WIyvIGfH5gpJPLL8MZJt/4giC0jJ/mNZRtJmdzRuXWpUFB6QxkJa1RvMAQ==}
 
   '@opentelemetry/api@1.9.0':
     resolution: {integrity: sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg==}
@@ -841,6 +850,9 @@ packages:
   indent-string@4.0.0:
     resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
     engines: {node: '>=8'}
+
+  invokers-polyfill@1.0.3:
+    resolution: {integrity: sha512-T8zVavFQu5GlWlpkjghmaCaTx6Wk+9tWwJ2BC4oNsNAnar6AIrvSJQFZUcYDfrxzK9thBIyZvAkeLfdN9hTzGA==}
 
   is-core-module@2.16.2:
     resolution: {integrity: sha512-evOr8xfXKxE6qSR0hSXL2r3sd7ALj8+7jQEUvPYcm5sgZFdJ+AYzT6yNmJenvIYQBgIGwfwz08sL8zoL7yq2BA==}
@@ -1572,6 +1584,8 @@ snapshots:
       '@tybys/wasm-util': 0.10.2
     optional: true
 
+  '@oddbird/popover-polyfill@0.6.1': {}
+
   '@opentelemetry/api@1.9.0': {}
 
   '@oxc-project/types@0.127.0': {}
@@ -2009,6 +2023,8 @@ snapshots:
   hono@4.12.18: {}
 
   indent-string@4.0.0: {}
+
+  invokers-polyfill@1.0.3: {}
 
   is-core-module@2.16.2:
     dependencies:

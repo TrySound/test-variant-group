@@ -65,6 +65,7 @@
   /* Shadows */
   --shadow-subtle: 0px 1px 2px 0px hsl(220 43% 11% / 0.05);
   --shadow-active: 0px 0px 0px 4px hsla(139, 73%, 90%, 1);
+  --shadow-floating: 0px 0px 8px 4px hsl(220 43% 11% / 0.1);
   --shadow-invalid: 0px 0px 0px 4px hsla(4, 95%, 94%, 1);
 
   /* Transitions */
@@ -88,6 +89,25 @@ body {
 img {
   display: block;
 }
+
+/* Popover base styles for older browser support */
+[popover] {
+  position: fixed;
+  inset: 0;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+  border: none;
+  background: transparent;
+  padding: 0;
+  overflow: visible;
+}
+
+/* Hide popover when not open (for browsers without native support) */
+[popover]:not(:popover-open):not(:-internal-popover-open) {
+  display: none;
+}
+
 
 /***** Atoms *****/
 
@@ -305,6 +325,10 @@ img {
   border-radius: var(--radius-lg);
 }
 
+.card--floating {
+  box-shadow: var(--shadow-floating);
+}
+
 .card-content {
   white-space: pre-line;
   /* for content links */
@@ -384,11 +408,16 @@ img {
   color: var(--color-text-success);
 }
 
-.dialog {
+.popover {
   background-color: transparent;
   color: inherit;
   border: none;
   padding: 0;
+  @supports (anchor-name: --name) {
+    margin: 8px 0;
+    inset: auto;
+    position-area: span-right bottom;
+  }
 }
 
 /***** Organisms *****/

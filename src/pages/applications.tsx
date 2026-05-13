@@ -56,40 +56,39 @@ export function Applications() {
                   className="button"
                   // @ts-ignore
                   commandfor={`applications-delete-${letter.id}`}
-                  command="show-modal"
+                  command="toggle-popover"
                 >
                   <Icon name="trash" />
                   Delete
                 </button>
-                <dialog
+                <div
                   id={`applications-delete-${letter.id}`}
-                  closedby="any"
-                  className="dialog"
+                  popover="auto"
+                  className="popover"
                 >
-                  <div className="card">
+                  <div className="card card--floating">
                     <div className="card-content">Delete this application?</div>
                     <div className="card-actions">
                       <button
                         className="button"
                         // @ts-ignore
                         commandfor={`applications-delete-${letter.id}`}
-                        command="close"
+                        command="hide-popover"
                         onClick={() => handleDelete(letter.id)}
                       >
                         Delete
                       </button>
-                      <div popover=""></div>
                       <button
                         className="button"
                         // @ts-ignore
                         commandfor={`applications-delete-${letter.id}`}
-                        command="close"
+                        command="hide-popover"
                       >
                         Cancel
                       </button>
                     </div>
                   </div>
-                </dialog>
+                </div>
                 <ButtonCopy text={letter.generatedText} />
               </div>
             </article>
