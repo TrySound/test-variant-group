@@ -19,7 +19,7 @@ export const CtaGoal = ({ current, total }: CtaGoalProps) => {
         </p>
         <Link className="button button--primary button--lg" to="/generator">
           <Icon name="plus" size="lg" />
-          Create new
+          Create New
         </Link>
       </div>
       <div className='cta-content'>

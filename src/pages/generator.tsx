@@ -100,7 +100,7 @@ const GeneratorForm = ({
   const isDetailsValid = details.length <= MAX_DETAILS_LENGTH;
   return (
     <section aria-label="Application form">
-      <div className="page-header">
+      <div className={`page-header ${styles.header}`}>
         <h1
           className="page-header-title text-heading-2"
           style={{

@@ -90,6 +90,10 @@ img {
   display: block;
 }
 
+p {
+  margin: 16px 0;
+}
+
 /* Popover base styles for older browser support */
 [popover] {
   position: fixed;
@@ -116,12 +120,14 @@ img {
   font: var(--text-heading-1);
   letter-spacing: var(--text-heading-1-letter-spacing);
   color: var(--color-text-primary);
+  margin: 16px 0;
 }
 
 .text-heading-2 {
   font: var(--text-heading-2);
   letter-spacing: var(--text-heading-2-letter-spacing);
   color: var(--color-text-primary);
+  margin: 16px 0;
 }
 
 /* Form Elements */
@@ -301,7 +307,7 @@ img {
 
 /* Button Large variant */
 .button--lg {
-  padding: 16px 32px;
+  padding: 16px 28px;
   gap: 12px;
   font: var(--text-button-lg);
 }
@@ -338,7 +344,7 @@ img {
   position: relative;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 5;
   overflow: hidden;
   &::after {
     content: "";
