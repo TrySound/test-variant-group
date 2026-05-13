@@ -47,5 +47,6 @@ There are still things to improve, specifically spacing is hardcoded and doesn't
 - moved src/pages/layout.tsx to src/layout.tsx
 - UI now is more aligned with figma
 - replaced dialog with popover api and anchor positioning, in older browsers polyfills make it behaves similar to non-modal dialog and centered on the page
-- Fill job title and company name on any change in inputs instead of only submit, though this was not obvious from requirements or figma
+- fill job title and company name on any change in inputs instead of only submit, though this was not obvious from requirements or figma
+- improved mobile with fluid typography
 - fixed the link in repo description to correct netlify deploy

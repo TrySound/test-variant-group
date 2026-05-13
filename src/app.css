@@ -30,9 +30,40 @@
   --text-button-lg: 600 18px/28px "Fixel Text", system-ui;
   --text-body: 400 18px/28px "Fixel Text", system-ui;
   --text-subtle: 400 16px/22px "Fixel Text", system-ui;
-  --text-heading-1: 600 48px/60px "Fixel Display", system-ui;
+  /*
+    Fluid Typography: clamp(minimum, preferred, maximum)
+    Viewport range: 320px (mobile) to 1200px (desktop)
+    Formula: calc(min_size + (max_size - min_size) * (100vw - 320px) / (1200 - 320))
+  */
+  /*
+    Heading 1: 32px/40px → 48px/60px
+    font-size: clamp(32px, 1.818vw + 1.636rem, 48px)
+      - 32px = minimum size at 320px viewport
+      - 1.818vw = growth rate (16px difference over 880px range = 1.818%)
+      - 1.636rem = base offset in rem (~26.18px)
+      - 48px = maximum size at 1200px+ viewport
+    line-height: clamp(40px, 2.273vw + 2.045rem, 60px)
+      - 40px = minimum line-height (1.25x font-size)
+      - 2.273vw = growth rate (20px difference over 880px range)
+      - 2.045rem = base offset in rem (~32.72px)
+      - 60px = maximum line-height (1.25x max font-size)
+  */
+  --text-heading-1: 600 clamp(32px, 1.818vw + 1.636rem, 48px) / clamp(40px, 2.273vw + 2.045rem, 60px) "Fixel Display", system-ui;
   --text-heading-1-letter-spacing: -2%;
-  --text-heading-2: 600 36px/44px "Fixel Display", system-ui;
+  /*
+    Heading 2: 28px/36px → 36px/44px
+    font-size: clamp(28px, 0.909vw + 1.636rem, 36px)
+      - 28px = minimum size at 320px viewport
+      - 0.909vw = growth rate (8px difference over 880px range = 0.909%)
+      - 1.636rem = base offset in rem (~26.18px)
+      - 36px = maximum size at 1200px+ viewport
+    line-height: clamp(36px, 1.136vw + 2rem, 44px)
+      - 36px = minimum line-height (~1.286x font-size)
+      - 1.136vw = growth rate (8px difference over 880px range)
+      - 2rem = base offset in rem (32px)
+      - 44px = maximum line-height (~1.222x max font-size)
+  */
+  --text-heading-2: 600 clamp(28px, 0.909vw + 1.636rem, 36px) / clamp(36px, 1.136vw + 2rem, 44px) "Fixel Display", system-ui;
   --text-heading-2-letter-spacing: -2%;
   --text-label: 600 14px/20px "Fixel Text", system-ui;
 
@@ -361,6 +392,8 @@ p {
 
 .card-actions {
   display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
 }

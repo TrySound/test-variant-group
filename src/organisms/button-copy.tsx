@@ -16,11 +16,11 @@ export const ButtonCopy = ({ text }: { text: undefined | string }) => {
     <button className="button" onClick={handleCopy} disabled={!text}>
       {isCopied ? (
         <>
-          Copied! <Icon name="check" />
+          <Icon name="check" /> Copied!
         </>
       ) : (
         <>
-          Copy to clipboard <Icon name="copy" />
+          <Icon name="copy" /> Copy to clipboard
         </>
       )}
     </button>
