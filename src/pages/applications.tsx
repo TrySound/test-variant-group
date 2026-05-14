@@ -54,7 +54,6 @@ export function Applications() {
               <div className="card-actions">
                 <button
                   className="button"
-                  // @ts-ignore
                   commandfor={`applications-delete-${letter.id}`}
                   command="toggle-popover"
                 >
@@ -71,7 +70,6 @@ export function Applications() {
                     <div className="card-actions">
                       <button
                         className="button"
-                        // @ts-ignore
                         commandfor={`applications-delete-${letter.id}`}
                         command="hide-popover"
                         onClick={() => handleDelete(letter.id)}
@@ -80,7 +78,6 @@ export function Applications() {
                       </button>
                       <button
                         className="button"
-                        // @ts-ignore
                         commandfor={`applications-delete-${letter.id}`}
                         command="hide-popover"
                       >
